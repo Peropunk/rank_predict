@@ -8,29 +8,48 @@ const counselorData = [
   { name: "JOSAA", logo: "josaa.jpeg", link: "/josaa" },
   { name: "CSAB", logo: "CSAB.webp", link: "/college-a" },
   { name: "JAC DELHI", logo: "JAC-Delhi.png", link: "/college-a" },
-  { name: "UPSEE", logo: "upsee.jpg", link: "/upsee" },
+  { name: "UPTAC", logo: "upsee.jpg", link: "/upsee" },
   { name: "WBJEE", logo: "wbjee.png", link: "/college-a" },
   { name: "IPU", logo: "ipu.png", link: "/college-a" },
-  { name: "JAC CHANDIGARH", logo: "jacchandigarh.webp", link: "/college-a" },
   { name: "HARYANA", logo: "haryana.png", link: "/college-a" },
   { name: "MHT-CET", logo: "mhtcet.jpeg", link: "/college-a" },
   { name: "PTU", logo: "ptu.png", link: "/college-a" },
   { name: "MP-DTE", logo: "mpdte.webp", link: "/college-a" },
+  { name: "JAC CHANDIGARH", logo: "jacchandigarh.webp", link: "/college-a" }
 ];
 
 export default function CollegePredictor() {
   return (
     <div className="min-h-screen bg-gray-100">
-      {/* Header */}
-      <header className="bg-[#1350ff] shadow p-4 text-xl font-bold text-white text-center">
-        Predictor
-      </header>
 
       {/* Main Content */}
       <div className="p-4">
-        <h2 className="text-lg font-semibold mb-4 text-black">Predict Your College</h2>
+      <h1 className="text-lg font-semibold mb-4 text-black text-center">
+  Predict Your College
+</h1>
+
+<div className="bg-white p-4 rounded-lg shadow-md lg:max-w-4xl mx-auto">
+          <h3 className="text-md font-semibold text-black mb-4">Course Type</h3>
+          {/* New Clickable Cards */}
+    <div className="grid grid-cols-2 md:grid-cols-2 gap-y-5 gap-x-3 lg:gap-x-4 lg:max-w-[80%] mx-auto mb-6">
+      <Link href="/">
+        <div className="p-4 bg-blue-500 text-white rounded-lg shadow-md text-center font-semibold cursor-pointer transition-transform duration-300 hover:scale-105">
+          Undergraduate Courses
+        </div>
+      </Link>
+
+      <Link href="/">
+        <div className="p-4 bg-green-500 text-white rounded-lg shadow-md text-center font-semibold cursor-pointer transition-transform duration-300 hover:scale-105">
+        Postgraduate Courses
+        </div>
+      </Link>
+    </div>
+    </div>
+<br></br>
+
         <div className="bg-white p-4 rounded-lg shadow-md lg:max-w-4xl mx-auto">
           <h3 className="text-md font-semibold text-black mb-4">COUNSELLINGS BASED ON JEE MAIN</h3>
+          
           <div className="grid grid-cols-2 md:grid-cols-3 gap-y-5 gap-x-3 lg:gap-x-4 lg:max-w-[80%] mx-auto">
             {counselorData.map((item, index) => (
               <Link key={index} href={item.link}>
@@ -51,17 +70,7 @@ export default function CollegePredictor() {
           <br></br>
         </div>
       </div>
-
-      {/* Bottom Navigation */}
-      <nav className="fixed bottom-0 w-full bg-white shadow-md p-3 flex justify-around">
-        <NavItem icon={Home} label="Home" />
-        <NavItem icon={LineChart} label="Predictor" active />
-        <NavItem icon={Diamond} label="Premium" />
-        <NavItem icon={Newspaper} label="News" />
-      </nav>
-    </div>
-  );
-}
+</div>)}
 
 function NavItem({ icon: Icon, label, active }) {
   return (
