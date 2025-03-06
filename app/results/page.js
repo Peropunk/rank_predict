@@ -3,31 +3,19 @@
 "use client";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, ChevronDown, ChevronUp } from "lucide-react";
+import {ArrowLeft} from 'lucide-react';
 import { useEffect, useState } from "react";
+import { ChevronDown, ChevronUp } from 'lucide-react';
 
 export default function ResultsPage() {
   const searchParams = useSearchParams();
-  const [queryParams, setQueryParams] = useState({
-    rank: null,
-    domicile: null,
-    category: null,
-    seatType: null,
-    quota: null,
-  });
-
-  useEffect(() => {
-    setQueryParams({
-      rank: searchParams.get("rank"),
-      domicile: searchParams.get("domicile"),
-      category: searchParams.get("category"),
-      seatType: searchParams.get("seatType"),
-      quota: searchParams.get("quota"),
-    });
-  }, [searchParams]);
+  const rank = searchParams.get("rank");
+  const domicile = searchParams.get("domicile");
+  const category = searchParams.get("category");
+  const seatType = searchParams.get("seatType");
+  const quota = searchParams.get("quota");
 
   const [collegeResults, setCollegeResults] = useState([]);
-  const [expandedIndex, setExpandedIndex] = useState(null);
 
   // Mock data (Replace with API call later)
   const mockColleges = [
@@ -41,7 +29,7 @@ export default function ResultsPage() {
         { round: 1, opening: 5000, closing: 10000 },
         { round: 2, opening: 6000, closing: 11000 },
         { round: 3, opening: 7000, closing: 12000 },
-      ],
+      ]
     },
     {
       name: "AJAY KUMAR GARG ENGG. COLLEGE, GHAZIABAD",
@@ -53,9 +41,11 @@ export default function ResultsPage() {
         { round: 1, opening: 8000, closing: 15000 },
         { round: 2, opening: 9000, closing: 16000 },
         { round: 3, opening: 10000, closing: 17000 },
-      ],
-    },
+      ]
+    }
   ];
+
+  const [expandedIndex, setExpandedIndex] = useState(null);
 
   useEffect(() => {
     setCollegeResults(mockColleges);
@@ -69,9 +59,7 @@ export default function ResultsPage() {
     <div className="min-h-screen flex flex-col items-center bg-white p-4">
       {/* Header */}
       <header className="w-full bg-gray-200 p-4 flex items-center text-black">
-        <Link href="/" className="text-lg font-bold flex items-center gap-2">
-          <ArrowLeft size={20} /> Back
-        </Link>
+        <Link href="/" className="text-lg font-bold"><ArrowLeft/></Link>
         <h2 className="flex-grow text-center text-lg font-semibold">
           Prediction Results
         </h2>
@@ -79,18 +67,14 @@ export default function ResultsPage() {
 
       {/* Rank Info */}
       <div className="bg-blue-700 text-white p-4 rounded-md shadow-md text-center w-full max-w-2xl mt-4">
-        <p>
-          <b>Rank:</b> {queryParams.rank} &nbsp;|&nbsp; 
-          <b> State:</b> {queryParams.domicile === "Yes" ? "Uttar Pradesh" : "Other"} &nbsp;|&nbsp; 
-          <b> Quota:</b> {queryParams.category}
-        </p>
+        <p><b>Rank:</b> {rank} | <b>State:</b> {domicile === "Yes" ? "Uttar Pradesh" : "Other"} | <b>Category:</b> {category}</p>
       </div>
 
       {/* Results */}
       <div className="w-full max-w-2xl mt-4">
         {collegeResults.length > 0 ? (
           collegeResults.map((college, index) => (
-            <div key={index} className="bg-white text-black p-4 rounded-md shadow-md mt-4">
+            <div key={index} className="bg-white text-black p-4 rounded-md shadow-md mt-4 ">
               <div className="flex justify-between items-center">
                 <div>
                   <h3 className="font-bold uppercase">{college.name}</h3>

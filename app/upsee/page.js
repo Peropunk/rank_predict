@@ -67,11 +67,10 @@ export default function UPSEEPredictor() {
         </select>
 
         <select value={quota} onChange={(e) => setQuota(e.target.value)} className="w-full p-2 border text-black border-gray-300 rounded-lg mb-4">
-          <option value="0">Select Quota (optional)</option>
-          <option value="AF">AF</option>
-          <option value="TF">TF (Only applicable in OPEN)</option>
-          <option value="FF">FF</option>
-          <option value="PH">PH</option>
+          <option value="0">Select Sub-Category (optional)</option>
+          <option value="AF">AF (Aided Fees)</option>
+          <option value="FF">FF(Freedom Fighter)</option>
+          <option value="PH">PH (Physically Handicapped)</option>
         </select>
 
         <button type="submit" className="w-full bg-blue-600 text-white p-3 rounded-lg font-semibold">
