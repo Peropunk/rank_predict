@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import { ArrowLeft } from 'lucide-react';
 
 export default function JOSAAredictor() {
   const [rank, setRank] = useState("");
@@ -21,7 +22,7 @@ export default function JOSAAredictor() {
       <header className="w-full bg-white shadow p-4 flex items-center">
 
 <Link href="/" className="text-lg font-bold text-black">
-  &larr;
+  <ArrowLeft/>
 </Link>
 
         <h2 className="flex-grow text-center text-lg font-semibold text-gray-900">

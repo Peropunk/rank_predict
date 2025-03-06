@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import { ArrowLeft } from 'lucide-react';
 
 export default function UPSEEPredictor() {
   const [rank, setRank] = useState("");
@@ -19,8 +20,8 @@ export default function UPSEEPredictor() {
     <div className="min-h-screen flex flex-col items-center bg-gray-100 p-4">
       {/* Header */}
       <header className="w-full bg-white shadow p-4 flex items-center">
-      <Link href="/" className="text-lg font-bold text-black">
-  &larr;
+      <Link href="/" className="text-lg font-bold  text-black">
+  <ArrowLeft/>
 </Link>
         <h2 className="flex-grow text-center text-lg font-semibold text-gray-900">
           UPTAC Predictor
@@ -50,6 +51,7 @@ export default function UPSEEPredictor() {
         <select value={category} onChange={(e) => setCategory(e.target.value)} className="w-full p-2 border text-black border-gray-300 rounded-lg mb-4">
         <option value="yes">Select Your Category</option>
           <option value="OPEN">OPEN</option>
+          <option value="EWS">EWS</option>
           <option value="OBC">OBC</option>
           <option value="SC">SC</option>
           <option value="ST">ST</option>
@@ -62,7 +64,8 @@ export default function UPSEEPredictor() {
         </select>
 
         <select value={quota} onChange={(e) => setQuota(e.target.value)} className="w-full p-2 border text-black border-gray-300 rounded-lg mb-4">
-        <option value="0">Quota</option>
+        <option value="0">Select Quota</option>
+        <option value="0">Fee Waiver</option>
           <option value="Freedom Fighter">Freedom Fighter</option>
           <option value="PWD">PWD</option>
           <option value="Other">Other</option>
