@@ -28,7 +28,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "scripts/import-data.ts", "scripts/convert-raw-data.js"  ],
   "exclude": [
     "node_modules"
   ]

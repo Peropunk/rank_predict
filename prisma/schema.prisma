@@ -1,0 +1,27 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Uptac {
+   id    String @id @default(auto()) @map("_id") @db.ObjectId
+  SrNo String? @map("SrNo")
+  Round String @map("Round")
+  Institute String @map("Institute")
+  Program String @map("Program")
+  Stream String @map("Stream")
+  Quota String @map("Quota")
+  Category String @map("Category")
+  seatGender String @map("seatGender")
+  openingRank String @map("openingRank")
+  closingRank String @map("closingRank")
+  Remark String @map("Remark")
+  CounsellingBody String @map("CounsellingBody")
+}
